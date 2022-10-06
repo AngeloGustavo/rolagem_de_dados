@@ -17,7 +17,6 @@ public class RollDice {
         for(int i=0; i<response.body().length(); i++){
             if(response.body().charAt(i) == 'D' 
             && response.body().charAt(i+1) == 'i'){
-                System.out.println(response.body().charAt(i+6));
                 return Character.getNumericValue(response.body().charAt(i+6));
             }
         }
