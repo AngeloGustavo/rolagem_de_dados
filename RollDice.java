@@ -13,8 +13,15 @@ public class RollDice {
                 .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.body());
+
+        for(int i=0; i<response.body().length(); i++){
+            if(response.body().charAt(i) == 'D' 
+            && response.body().charAt(i+1) == 'i'){
+                System.out.println(response.body().charAt(i+6));
+                return Character.getNumericValue(response.body().charAt(i+6));
+            }
+        }
         
-        return 0;
+        return -1;
     }
 }
