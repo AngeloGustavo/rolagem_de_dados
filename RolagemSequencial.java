@@ -1,8 +1,8 @@
 import java.io.IOException;
 
 public class RolagemSequencial {
-    public static void main(String[] args) throws IOException, InterruptedException {
-        int[] rodadas  = {1, 2, 5, 10, 15, 20, 30};
+    public static void main(String[] args) throws IOException, InterruptedException{
+        int[] rodadas  = {5,10, 50, 100, 250, 400, 700};
         
         for(int i=0; i<rodadas.length; i++){
             long inicioRodada = System.currentTimeMillis();
@@ -13,5 +13,5 @@ public class RolagemSequencial {
             long fimRodada = System.currentTimeMillis();
             System.out.println("Media de tempo da rodada "+(i+1)+" ["+rodadas[i]+" vezes]: "+(fimRodada - inicioRodada)/20 +" milisegundos. ");
         }
-    }
+    }    
 }

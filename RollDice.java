@@ -5,22 +5,20 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class RollDice {
-    static int getDiceNumber() throws IOException, InterruptedException{
+    static void getDiceNumber() throws InterruptedException, IOException{
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://roll-dice1.p.rapidapi.com/rollDice"))
+                .uri(URI.create("https://api-football-v1.p.rapidapi.com/v3/timezone"))
                 .header("X-RapidAPI-Key", "a6bb8f681fmshdde8bf2f159fc25p14aafejsna03fafee8069")
-                .header("X-RapidAPI-Host", "roll-dice1.p.rapidapi.com")
+                .header("X-RapidAPI-Host", "api-football-v1.p.rapidapi.com")
                 .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-
-        for(int i=0; i<response.body().length(); i++){
-            if(response.body().charAt(i) == 'D' 
-            && response.body().charAt(i+1) == 'i'){
-                return Character.getNumericValue(response.body().charAt(i+6));
-            }
-        }
-        
-        return -1;
+        // HttpRequest request = HttpRequest.newBuilder()
+        //         .uri(URI.create("https://roll-dice1.p.rapidapi.com/rollDice"))
+        //         .header("X-RapidAPI-Key", "a6bb8f681fmshdde8bf2f159fc25p14aafejsna03fafee8069")
+        //         .header("X-RapidAPI-Host", "roll-dice1.p.rapidapi.com")
+        //         .method("GET", HttpRequest.BodyPublishers.noBody())
+        //         .build();
+        // HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
     }
 }
