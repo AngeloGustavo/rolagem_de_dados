@@ -5,7 +5,7 @@ public class ThreadDeRolagem implements Runnable{
 	public void run() {
 		try {
 			RollDice.getDiceNumber();
-		} catch (InterruptedException | IOException e) {
+		} catch (Exception e) {
 			//e.printStackTrace();
             System.out.print("exceção. ");
 		}
